@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Sales List
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body
+    header
+        .sales-header
+          .container
+            nav#navbar.navbar 
+              .header 
+                .h3-ul
+                  | Users list
+              ul 
+                li 
+                  a.nav-link(href='/register') Back
+    .container
+      .row
+        .col
+          table.table.table-hover
+            .thead-ul
+              tr
+                th First Name
+                th Last Name
+                th Email Address
+                th Role
+                th Remove 
+                th Edit
+            tbody
+            if users.length
+                    each user in users   
+                      tr
+                        td #{user.firstName}
+                        td #{user.lastName}
+                        td #{user.email}
+                        td #{user.role}
+                        td 
+                            a.btn.btn-success.btn-block(href='/register/edituser/'+user._id) Update 
+                            //- action='/sales/editsale?id='+sale._id 
+                        td
+                          form.delete(method="post" action='/register/delete')
+                            input(type="hidden", placeholder="", name="id", value=user._id)
+                            button.btn.btn-success-btn-(type="submit") Delete

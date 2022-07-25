@@ -1,0 +1,63 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Sales List
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            .header 
+              .h3-ul
+                | Sales records
+            ul 
+              li 
+                a.nav-link(href='/register') Back
+    .card-header
+        h3.card-title
+            br
+            if sales.length    
+              span.total Total revenue received:-UGX  
+                  strong  #{total.totalRevenue}
+              span.tonaggr  Total tonnage sold:
+                  strong #{total.totalTonnage}Kgs
+            else 
+              p There are no sales captured 
+    .container
+      .row
+        .col
+          table.table.table-bordered.table-hover
+            thead
+              tr
+                th Name of produce
+                th Tonnage
+                th Amount paid
+                th Buyer&apos;s name
+                th Sales Agent&apos;s name
+                th Date &amp; Time
+                th Unit price
+                th Edit 
+                th Remove 
+            tbody
+            if sales.length
+                each sale in sales  
+                    tr
+                        td #{sale.nameofproduct}
+                        td #{sale.tonnage}
+                        td #{sale.amountpaid}
+                        td #{sale.buyersname}
+                        td #{sale.saleagent}
+                        td #{sale.dateandtime}
+                        td #{sale.unitprice}
+                        td 
+                            a.btn.btn-success.btn-block(href='/sales/editsale/'+sale._id) Update 
+                            //- action='/sales/editsale?id='+sale._id 
+                        td
+                          form.delete(method="post" action='/sales/delete')
+                            input(type="hidden", placeholder="", name="id", value=sale._id)
+                            button.btn.btn-success-btn-(type="submit") Delete

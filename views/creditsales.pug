@@ -1,0 +1,81 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Credit | KGL
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body(onload='procurementlinkfocus()')
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            h2.header 
+              | Credit sales dashboard
+            ul
+              li 
+                a.nav-link(href='/procurement') Procurement
+              li 
+                a.nav-link(href='/sales') Back
+    hr
+    section.background-glass
+      .container.py-5.px-md-5
+        .col-crd
+          .card.bg-glass
+            .card-body
+              form(action='/creditpayments' method='POST' name='creditform')
+                .row
+                  .col
+                    label.form-label(for='validationCustom01') Name of produce
+                    span#noperror
+                    input#nameofproduct(type='text', name='nameofproduce' placeholder='To be filled', onblur='validateNop(this, noperror)', required='')
+                  .col
+                    label.form-label(for='validationCustom02') Type of produce
+                    select#typeofproduce.select-input(name='typeofproduce')
+                      option(value='select') Select
+                      option(value='Grain') Grain
+                      option(value='Other') Other
+                .row
+                  .col
+                    label.form-label(for='validationCustom03') Amount due (Ugx)
+                    span#errrr
+                    input#costofprocurement(type='number', name='amountdue' placeholder='To be filled', onblur='valcoprocurement(this, errrr)', required='')
+                  .col
+                    label.form-label(for='validationCustom04') Buyer&apos;s name
+                    span#bname
+                    input#buyername(type='text', name='buyersname' placeholder='To be filled', onblur='valBname(this, bname)', required='')
+                .row
+                  .col
+                    label.form-label(for='validationCustom05') Sales Agent&apos;s name
+                    span#sname
+                    input#agentname(type='text', name='saleagent' placeholder='To be filled', onblur='valSname(this, sname)', required='')
+                  .col
+                    label.form-label(for='validationCustom06') Date of dispatch
+                    input#dodis(type='date' name='dateofdispatch')
+                .row
+                  .col
+                    label.form-label(for='validationCustom07') National ID. No.
+                    span#ninerror
+                    input#NIN(type='text', name='nationalid' placeholder='To be filled', onblur='valNIN(this, ninerror)')
+                  .col
+                    label.form-label(for='validationCustom08') Date of payback
+                    input#dopay(type='datetime-local' name='dateofpayback')
+                .row
+                  .col
+                    label.form-label(for='validationCustom09') Contact
+                    br
+                    span#conterr
+                    input#contact(type='tel', name='contact' placeholder='To be filled', onblur='validateContact(this, conterr)', required='')
+                  .col
+                    label.form-label(for='validationCustom10') Location
+                    br
+                    span#locaerror
+                    input#buyername(type='text', name='location' placeholder='To be filled', onblur='valLocation(this, locaerror)', required='')
+                .row
+                  .col
+                    button.btn.btn-success.btn-block.mb-4(type='submit')
+                      | Record credit sale
+    script(src='/js/bootstrap.js')
+    script(src='/validation.js')

@@ -1,0 +1,227 @@
+/* Login page styling */
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: rgb(19, 11, 11);
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
+body {
+    background-image: url(./dashbg.jpg);
+    background-size: cover;
+    font-size: 17px;
+}
+/* h5 {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-right:8%;
+  } */
+
+/* User registration styling */
+.background-radial-gradient {
+    background-color: hsl(218, 41%, 15%);
+    background-image: radial-gradient(650px circle at 0% 0%,
+        hsl(218, 41%, 35%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%),
+      radial-gradient(1250px circle at 100% 100%,
+        hsl(218, 41%, 45%) 15%,
+        hsl(218, 41%, 30%) 35%,
+        hsl(218, 41%, 20%) 75%,
+        hsl(218, 41%, 19%) 80%,
+        transparent 100%);
+  }
+
+
+
+  .bg-glass {
+    background-color: hsla(0, 0%, 100%, 0.9) !important;
+    backdrop-filter: saturate(200%) blur(25px);
+  }
+  #password{
+    margin-left : 10px;
+  }
+
+.navbar {
+    padding: 0;
+} 
+
+.navbar ul {
+    margin-right: 20px;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+.navbar ul li:hover {
+    background-color: #d2eef3;
+    color: #0d8c42;
+    padding: 0px;
+    border-radius: 2px;
+
+}
+
+input, select {
+    padding:15px;
+    border-radius: 5px;
+    border: 3px solid #0d8c42;
+    font-family: candara;
+    margin-bottom: 20px;
+    font-size: 15px;
+}
+
+.btn {
+    padding:15px;
+    border-radius: 5px;
+    border: 3px solid #0d8c42;
+    font-family: candara;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.btn.btn-success.btn-block, .btn.btn-danger.btn-block  {
+    border-radius: 5px;
+    border: 3px solid;
+    font-family: candara;
+    font-size: 19px;
+    margin-top: 5px;
+}
+
+
+.register-header{
+    font-family: candara;
+    font-size: 75px;
+    font-weight: bolder;
+    background-color:glass;
+    padding:37px;
+    color: #333333;
+}
+h3 {
+    font-size: 60px;
+    font-family: candara;
+    font-weight: bolder;
+    color: #333333;
+    margin-left: 10%;
+    margin-top: 50px;
+}
+.lead-sign {
+    font-weight: bolder;
+    font-size: 30px;
+    color: #333333;
+    margin-left: 43px;
+}
+.reg-lower {
+    font-size: 20px;
+    padding-top: 20px;
+    color: #333333;
+}
+.footer-cr {
+    color: #d2eef3;
+    text-align:justify
+}
+.sales-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #0d8c42;
+    color: white;
+    font-family: candara;
+    font-weight: bolder;
+    font-size: 80px;
+}
+.row-sale {
+    margin-left : 150px;
+}
+
+.img-fluid-ss {
+    max-width: 90%;
+    height: auto;
+    position: relative;
+    margin-left: 17%;
+}
+/* .btn-btn-success-btn-block-mb-4{
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 11px;
+} */
+
+/* .button-success:hover {
+    color: #0d8c42;
+    background-color: #d2eef3;
+} */
+
+h2.header {
+    text-align: center;
+    margin-left: 30%;
+    font-size: 35px;
+}
+
+.thead-ul{
+    margin-top: 50px;
+}
+
+.tonaggr{
+    margin-left: 54%;
+    font-size: 18px;
+}
+.total{
+    margin-left: 25px;
+}
+
+h3.card-title{
+    font-size: 18px;
+    font-weight:400;
+    margin-right: 20px;
+}
+
+.h4 {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: candara;
+    padding: 0%;
+}
+
+/* .row {
+    margin-left: 35px;
+} */
+
+.col-crd {
+    padding: 0%;
+}
+
+.table-all {
+    --bs-table-bg: transparent;
+    --bs-table-accent-bg: transparent;
+    --bs-table-striped-color: #212529;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212529;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    vertical-align: top;
+    border-color: #dee2e6;
+  }
+
+  /* .table.table-bordered.table-hover{
+    margin-right: 0px;
+  } */
+  /* table, th, td, tr{
+    border: 1px dashed black; 
+  } */

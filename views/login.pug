@@ -1,0 +1,36 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title KGL Login
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body(onload='firstfocus()')
+    section.vh-100
+      .container-fluid.h-custom
+        .row.d-flex.justify-content-center.align-items-center.h-100
+          .col-md-9.col-lg-6.col-xl-5
+            h3 Karibu Groceries Limited
+            img.img-fluid-ss(src='./agriculture-icon-png-6-removebg-preview.png', alt='Sample image')
+          .col-md-8.col-lg-6.col-xl-4.offset-xl-1
+            form(action='/' method='POST' name='loginform')
+              .d-flex.flex-row.justify-content-center.justify-content-lg-start
+                p.lead-sign Sign in
+              .row
+                .col-12
+                  .form-outline.mb-4
+                    span#emailerror
+                    input#emailad.form-control.form-control-lg(type='email', name='email', placeholder='Enter a valid email address', onblur='valEmail(this, emailerror)', required='')
+                  .form-outline.mb-4
+                    input#emailad.form-control.form-control-lg(type='password', placeholder='Enter password', name='password', onblur='valPswd(this, errormessage2)', required='')
+                    span#errormessage2
+                  .text-center.text-lg-start.mt-4.pt-2
+                    button.btn.btn-success.btn-lg(type='submit', style='padding-left: 2.5rem; padding-right: 2.5rem;') Login
+
+      .d-flex.flex-column.flex-md-row.text-center.text-md-start.justify-content-between.py-4.px-4.px-xl-5.bg-success
+        .footer-cr
+          h5 Copyright &copy; 2022. System developed by Ssozi Martin.
+    script(src='./js/bootstrap.js')
+    script(src='./validation.js')

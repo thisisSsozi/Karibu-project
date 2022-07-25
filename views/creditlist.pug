@@ -1,0 +1,62 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Credit List
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            .h3-ul 
+              | Credit records
+            ul
+              li 
+                a.nav-link(href='/register') Back
+      .card-header
+          h3.card-title
+              br    
+              span.total Total amount due:-UGX  
+                  strong  #{total.totalAmountdue}
+    .container
+      .row
+        .col
+          table.table.table-bordered.table-hover
+            thead
+              tr
+                th Name of produce
+                th Type of produce
+                th Amount due
+                th Buyer&apos;s name
+                th Sales Agent&apos;s name
+                th Date of dispatch
+                th National ID
+                th Date of payback
+                th Contact
+                th Location
+                th Edit
+                th Remove 
+            tbody
+            if credits.length
+              each credit in credits   
+                tr
+                  td #{credit.nameofproduce}
+                  td #{credit.typeofproduce}
+                  td #{credit.amountdue}
+                  td #{credit.buyersname}
+                  td #{credit.saleagent}
+                  td #{credit.dateofdispatch}
+                  td #{credit.nationalid}
+                  td #{credit.dateofpayback}
+                  td #{credit.contact}
+                  td #{credit.location}
+                  td 
+                      a.btn.btn-success.btn-block(href='/creditpayments/editcredit/'+credit._id) Update
+                  td
+                    form.delete(method="post" action='/creditpayments/delete')
+                      input(type="hidden", placeholder="", name="id", value=credit._id)
+                      button.btn.btn-success-btn-(type="submit") Delete

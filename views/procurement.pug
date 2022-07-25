@@ -1,0 +1,96 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Procurement | KGL
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            h2.header 
+              | Manager's dashboard 
+            ul
+              li 
+                a.nav-link(href='/sales') Sales  
+              li 
+                a.nav-link(href='/creditpayments') Credit 
+              li 
+                  a.nav-link(href='/procurement/procurementlist') Procurement list   
+              li 
+                a.nav-link(href='/logout') Logout  
+    hr
+    section.background-glass
+      .container.py-2.px-md-5
+        .col
+          .card.bg-glass
+            .card-body
+              form(action='/procurement' method='POST' name='procurementform')
+                .row
+                  .col
+                    label.form-label(for='validationCustom01') Name of produce
+                    span#noperror
+                    input#nameofproduct(type='text', name='nameofproduce' placeholder='To be filled', onblur='validateNop(this, noperror)', required='')
+                  .col
+                    label.form-label(for='validationCustom02') Type of produce
+                    span#erro8
+                    input#typeofproduce(type='text', name='typeofproduce' placeholder='To be filled', onblur='valtoproduce(this, erro8)')
+                .row
+                  .col
+                    label.form-label(for='validationCustom03') Tonnage (Kgs)
+                    span#er111
+                    input#tonnage(type='number', name='tonnage' onblur='validateTon(this, er111)', required='')
+                  .col
+                    label.form-label(for='validationCustom04') Cost of procurement (Ugx)
+                    span#errrr
+                    input#costofprocurement(type='text', name='costofprocurement' placeholder='To be filled', onblur='valcoprocurement(this, errrr)', required='')
+                .row
+                  .col
+                    label.form-label(for='validationCustom05') Name of dealer
+                    span#bname
+                    select#nameofdealer(name='nameofdealer', type='text', onblur='valBname(this,bname', required)
+                      option(value='default') Select
+                      option(value='Ntinda') Individual
+                      option(value='Other') Company
+                      option(value='Matugga') Matugga Farm
+                      option(value='Maganjo') Maganjo Farm
+                  .col
+                    label.form-label(for='validationCustom06')
+                      | Date &amp; Time of
+                      | procurement
+                    span#errormessage11
+                    input#dotprocurement(type='datetime-local', name='dateandtimeofprocurement' onblur='valDate(this, errormessage11)', required='')
+                .row
+                  .col
+                    label.form-label(for='validationCustom07') Branch
+                    br
+                    select#branch.select-input(name='branch')
+                      option(value='default') Select
+                      option(value='Ntinda') Ntinda
+                      option(value='Kisenyi') Kisenyi
+                  .col
+                    label.form-label(for='validationCustom05') Contact
+                    br
+                    span#conterr
+                    input#contact(type='tel', name='contact' placeholder='To be filled', onblur='validateContact(this, conterr)', required='')
+                .row
+                  .col
+                    label.form-label(for='validationCustom03') Price to be sold (Ugx)
+                    input#pricetosell(type='number', name='pricetobesold' placeholder='To be filled')
+                  .col
+                    label.form-label(for='validationCustom06')
+                      | Date &amp; Time of
+                      | dispatch
+                    span#errormessage11
+                    input#dotprocurement(type='datetime-local', name='dateandtimeofdispatch' onblur='valDate(this, errormessage11)', required='')
+                .row
+                  .col
+                    br
+                    button.btn.btn-success.btn-block.mb-4(type='submit')
+                      | Record procurement
+    script(src='./validation.js')
+    script(src='./js/bootstrap.js')

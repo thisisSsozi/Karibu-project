@@ -1,0 +1,68 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Procurement List
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            .h3-ul
+              | Procurement records
+            ul 
+              li 
+                a.nav-link(href='/procurement') Back
+      if procurements.length
+        for procurement in procurements 
+          if procurement.nameofproduce == ''
+            .alert.alert-danger Produce is out of stock
+      .card-header
+        h3.card-title   
+            span.total Procurement sum:-UGX  
+                strong  #{total.totalProsum}
+            span.tonaggr  Total tonnage Procured:
+                strong #{total.totalTonnage}Kgs
+            span.tonaggr  Selling Px sum:
+                strong #{total.totalSellpx}Kgs  
+    .container
+      
+          table.table.table-bordered.table-hover(action='/procurement/procurementlist' method='POST')
+            thead
+              tr
+                th Name of produce
+                th Type of produce
+                th Tonnage
+                th Procurement cost
+                th Dealer
+                th Procurement D/T
+                th Branch
+                th Contact
+                th Selling Px
+                th Dispatch D/T
+                th Remove 
+                th Edit
+            tbody
+            if procurements.length
+                    each procurement in procurements   
+                        tr
+                          td #{procurement.nameofproduce}
+                          td #{procurement.typeofproduce}
+                          td #{procurement.tonnage}
+                          td #{procurement.costofprocurement}
+                          td #{procurement.nameofdealer}
+                          td #{procurement.dateandtimeofprocurement}
+                          td #{procurement.branch}
+                          td #{procurement.contact}
+                          td #{procurement.pricetobesold}
+                          td #{procurement.dateandtimeofdispatch}
+                          td 
+                            a.btn.btn-success.btn-block(href='/procurement/editprocurement/'+procurement._id) Update
+                          td
+                            form.delete(method="post" action='/procurement/delete')
+                              input(type="hidden", placeholder="", name="id", value=procurement._id)
+                              button.btn.btn-success-btn-(type="submit") Delete

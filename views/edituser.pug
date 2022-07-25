@@ -1,0 +1,57 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Edit user
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body(onload='regfocus()')
+    header 
+      .sales-header
+          .container
+            nav#navbar.navbar 
+              h2.header 
+                | Director's Dashboard
+              ul
+                li 
+                a.nav-link(href='/register') Back
+    section.background-glass
+      .container.py-5.px-md-5
+        .row
+          .col-lg-6
+            h1.register-header
+              | Registration Hub 
+              br
+              |  for Karibu Groceries Limited
+            p.header-description
+          .col-lg-6
+            .card.bg-glass
+              .card-body.px-4.py-5.px-md-5
+                form(action="/register/edituser?id="+user._id method="POST" name='edituserform')
+                  .form-outline.mb-4
+                    span#errormessage3
+                    input#firstname(type='text', name='firstName', placeholder='First Name', onblur='valFirstName(this, errormessage3)', value=user.firstName)
+                    br
+                  .form-outline.mb-4
+                    span#errormessage4
+                    input#lastname(type='text', name='lastName' placeholder='lastName', onblur='valLastname(this, errormessage4)', value.user.lastName)
+                  .form-outline.mb-4
+                    span#emailerror
+                    input#emailaddress(type='email', placeholder='Email Address', name='email' onblur='valEmail(this, emailerror)', required='', value.user.email)
+                  .form-outline.mb-4
+                    label.form-label(for='validationCustom01')
+                    span#roleerror 
+                    select#branch.select-input(type='text' name='role' value=user.role) 
+                      option(value='default') Select role
+                      option(value='Director') Director
+                      option(value='Manager') Manager
+                      option(value='Agent') Sales agent
+                  .form-outline.mb-4
+                    span#errormessage6
+                    input#pswd(type='password', placeholder='Password', name='password' onblur='valPassword(this, errormessage6)', required='')
+                  button.btn.btn-success.btn-block.mb-4(type='submit')
+                    | Save changes
+    script(src='./js/bootstrap.js')
+    script(src='./validation.js')

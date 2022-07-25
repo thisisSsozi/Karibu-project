@@ -1,0 +1,70 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Edit sale
+    link(href='/css/bootstrap.css', type='text/css', rel='stylesheet')
+    link(href='/styles.css', type='text/css', rel='stylesheet')
+  body(onload='salefocus()')
+    header
+      .sales-header
+        .container
+          nav#navbar.navbar 
+            h2.header 
+              | Edit sale values
+            ul
+              li 
+                a.nav-link(href='/register') Back
+    hr
+    section.background-glass
+      .container.py-5.px-md-5
+        .col
+          .card.bg-glass
+            .card-body
+              form(action="/sales/saleslist" method="POST" name='editsale')
+                .row
+                  .col
+                    label.form-label(for='validationCustom01') Name of produce
+                    select#nameofproduct.select-input(name='nameofproduct', value=sale.nameofproduct)
+                      option(value='default') Select
+                      option(value='Beans') Beans
+                      option(value='Maize') Maize
+                      option(value='Cowpease') Cowpease
+                      option(value='G.Nuts') G.Nuts
+                      option(value='Soybeans') Soybeans
+                  .col
+                    label.form-label(for='validationCustom02') Tonnage (Kgs)
+                    input#tonnage(type='number' name='tonnage' value=sale.tonnage) 
+                .row
+                  .col
+                    label.form-label(for='validationCustom03') Amount paid (Ugx)
+                    span#apaid
+                    input#amountpaid(type='number', name='amountpaid' placeholder='To be filled', onblur='valap(this, apaid)', required='', value=sale.amountpaid)
+                  .col
+                    label.form-label(for='validationCustom04')
+                      | Buyer&apos;s name
+                      | (Alphanumeric)
+                    span#bname
+                    input#buyername(type='alphanumeric', name='buyersname' placeholder='To be filled', onblur='valBname(this, bname)', required='', value=sale.buyersname)
+                .row
+                  .col
+                    label.form-label(for='validationCustom05')
+                      | Sales Agent&apos;s name
+                      | (Alphanumeric)
+                    span#sname
+                    input#agentname(type='alphanumeric', name='saleagent' placeholder='To be filled', onblur='valSname(this, sname)', required='', value=sale.saleagent)
+                  .col
+                    label.form-label(for='validationCustom06') Date &amp; Time
+                    input#dateandtime(type='datetime-local' name='dateandtime', value=sale.dateandtime)
+                .row
+                  .col
+                    label.form-label(for='validationCustom03') Unit price (Ugx)
+                    span#uperror
+                    input#unitpx(type='text', name='unitprice' placeholder='To be filled', onblur='valuprice(this, uperror)' required='', value=sale.unitprice)
+                  .col
+                    button.btn.btn-success.btn-block.mb-4(type='submit')
+                      | Save changes
+    script(src='./js/bootstrap.js')
+    script(src='./validation.js')
