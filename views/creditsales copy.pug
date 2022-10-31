@@ -13,7 +13,7 @@ html(lang='en')
         .container
           nav#navbar.navbar 
             h2.header 
-              | Credit sales dashboard(Agent)
+              | Credit sales dashboard (Manager)
             ul
               li 
                 a.nav-link(href='/procurement') Procurement
@@ -30,13 +30,7 @@ html(lang='en')
                   .col
                     label.form-label(for='validationCustom01') Name of produce
                     span#noperror
-                    select#nameofproduce.select-input(type='text', name='nameofproduce' placeholder='To be filled', onblur='validateNop(this, noperror)', required='')
-                      option(value='default') Select
-                      option(value='Beans') Beans
-                      option(value='Maize') Maize
-                      option(value='Cowpease') Cowpease
-                      option(value='G.Nuts') G.Nuts
-                      option(value='Soybeans') Soybeans
+                    input#nameofproduct(type='text', name='nameofproduce' placeholder='To be filled', onblur='validateNop(this, noperror)', required='')
                   .col
                     label.form-label(for='validationCustom02') Type of produce
                     select#typeofproduce.select-input(name='typeofproduce')

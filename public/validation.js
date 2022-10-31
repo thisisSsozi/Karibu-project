@@ -106,6 +106,16 @@ const valap = (inputField, apaid)=>{
     }
 }
 
+let sellpx = () => {
+
+    let tonnage = parseInt(document.getElementById('tonnage').value); 
+    let rate = parseInt(document.getElementById('rate').value); 
+
+    let dueamount = tonnage * rate; 
+    document.getElementById('amountpaid').value = parseInt(dueamount);
+
+}
+
 
 const valuprice = (inputField, uperror)=>{
 

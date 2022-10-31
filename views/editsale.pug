@@ -23,7 +23,7 @@ html(lang='en')
         .col
           .card.bg-glass
             .card-body
-              form(action="/sales/saleslist" method="POST" name='editsale')
+              form(action=`/sales/editsale/${sale._id}` method="POST" name='editsale')
                 .row
                   .col
                     label.form-label(for='validationCustom01') Name of produce
@@ -36,12 +36,12 @@ html(lang='en')
                       option(value='Soybeans') Soybeans
                   .col
                     label.form-label(for='validationCustom02') Tonnage (Kgs)
-                    input#tonnage(type='number' name='tonnage' value=sale.tonnage) 
+                    input(type='number', id="tonnage", name='tonnage', value=sale.tonnage) 
                 .row
                   .col
                     label.form-label(for='validationCustom03') Amount paid (Ugx)
                     span#apaid
-                    input#amountpaid(type='number', name='amountpaid' placeholder='To be filled', onblur='valap(this, apaid)', required='', value=sale.amountpaid)
+                    input(type='number', id='amountpaid', name='amountpaid' placeholder='To be filled', onblur='valap(this, apaid)', onchange='sellpx()', required='', value=sale.amountpaid)
                   .col
                     label.form-label(for='validationCustom04')
                       | Buyer&apos;s name
@@ -62,7 +62,7 @@ html(lang='en')
                   .col
                     label.form-label(for='validationCustom03') Unit price (Ugx)
                     span#uperror
-                    input#unitpx(type='text', name='unitprice' placeholder='To be filled', onblur='valuprice(this, uperror)' required='', value=sale.unitprice)
+                    input(type='text', id='rate', name='unitprice' placeholder='To be filled', onblur='valuprice(this, uperror)' required='', onchange='sellpx()', value=sale.unitprice)
                   .col
                     button.btn.btn-success.btn-block.mb-4(type='submit')
                       | Save changes

@@ -43,7 +43,7 @@ html(lang='en')
                   .col
                     label.form-label(for='validationCustom03') Tonnage (Kgs)
                     span#er111
-                    input#tonnage(type='number', name='tonnage' onblur='validateTon(this, er111)', required='')
+                    input(type='number', id='tonnage' name='tonnage' onblur='validateTon(this, er111)', onchange='soldTon()', required='')
                   .col
                     label.form-label(for='validationCustom04') Cost of procurement (Ugx)
                     span#errrr

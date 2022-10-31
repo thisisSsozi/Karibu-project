@@ -48,7 +48,7 @@ router.post('/delete', async(req,res)=>{
         res.status(400).send("Unable to delete User in the database");
     }
   
-  })
+  })        
   
   // editing the users list
   router.get('/edituser/:id', async(req, res) => {
